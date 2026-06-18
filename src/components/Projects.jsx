@@ -43,7 +43,8 @@ const Projects = ({ lang }) => {
   return (
     <section id="projects" className="py-20 relative border-t border-slate-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-['DynaPuff'] text-white text-center mb-12 drop-shadow-lg">
+        
+        <h2 className="reveal reveal-down delay-100 text-4xl md:text-5xl font-['DynaPuff'] text-white text-center mb-12 drop-shadow-lg">
           {t.title} <span className="text-amber-400">{t.highlight}</span>
         </h2>
         
@@ -52,7 +53,7 @@ const Projects = ({ lang }) => {
             <div 
               key={index} 
               onClick={() => setSelected(proj)}
-              className="bg-slate-900/60 backdrop-blur-md rounded-xl overflow-hidden border border-slate-700/50 hover:-translate-y-2 hover:border-amber-400 hover:shadow-[0_15px_30px_rgba(251,191,36,0.2)] transition-all duration-300 cursor-pointer group"
+              className={`reveal reveal-up delay-${(index + 1) * 300} bg-slate-900/60 backdrop-blur-md rounded-xl overflow-hidden border border-slate-700/50 hover:-translate-y-2 hover:border-amber-400 hover:shadow-[0_15px_30px_rgba(251,191,36,0.2)] transition-all duration-300 cursor-pointer group`}
             >
               <div className="h-64 bg-slate-950 relative">
                 <img src={proj.image} alt={proj.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500" onError={(e) => { e.target.style.display = 'none'; }} />
@@ -75,7 +76,6 @@ const Projects = ({ lang }) => {
         </div>
       </div>
 
-      {/* --- POPUP BERSIH --- */}
       {selected && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md" onClick={() => setSelected(null)}>
           <div 
@@ -83,11 +83,9 @@ const Projects = ({ lang }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col md:flex-row gap-8 items-center relative z-10">
-              
               <div className="w-full md:w-1/2 h-64 md:h-80 bg-slate-950 rounded-lg border border-slate-800 overflow-hidden relative">
                 <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
               </div>
-              
               <div className="w-full md:w-1/2 text-center md:text-left">
                 <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
                   {selected.tech.map((techItem, i) => (
@@ -98,7 +96,6 @@ const Projects = ({ lang }) => {
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-white mb-6 font-['DynaPuff']">{selected.title}</h3>
                 <p className="text-slate-300 font-['Space_Grotesk'] leading-relaxed mb-8 text-lg">{selected.desc}</p>
-                
                 <div className="flex gap-4">
                   <a href={selected.github} target="_blank" rel="noreferrer" className="flex-1 py-3 text-center bg-cyan-500 text-slate-950 hover:bg-cyan-400 font-bold tracking-widest font-['Space_Grotesk'] uppercase text-sm transition-all rounded-lg">
                     {t.view}

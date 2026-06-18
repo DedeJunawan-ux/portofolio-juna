@@ -10,8 +10,7 @@ const Certifications = ({ lang }) => {
       google: "Sertifikasi profesional merancang dan mengelola kampanye pemasaran digital ekosistem Google.",
       azure: "Pemahaman arsitektur sistem kecerdasan buatan generatif (Gen AI) menggunakan Microsoft Azure.",
       fabric: "Kemampuan analitik dan implementasi ilmu data end-to-end menggunakan Microsoft Fabric.",
-      python: "Validasi kemampuan fundamental dalam bahasa pemrograman Python untuk komputasi data.",
-      dataanalys: "Sertifikasi kemampuan analisis data mencakup pengolahan, visualisasi, dan interpretasi data untuk pengambilan keputusan."
+      python: "Validasi kemampuan fundamental dalam bahasa pemrograman Python untuk komputasi data."
     },
     en: {
       title: "Licenses &", highlight: "Certifications", close: "CLOSE",
@@ -19,8 +18,7 @@ const Certifications = ({ lang }) => {
       google: "Professional certification for designing and managing digital marketing campaigns on Google.",
       azure: "Understanding generative AI system architecture using Microsoft Azure.",
       fabric: "Analytical skills and end-to-end data science implementation using Microsoft Fabric.",
-      python: "Validation of fundamental skills in Python programming language for data computation.",
-      dataanalys: "Certification covering data processing, visualization, and interpretation skills for data-driven decision making."
+      python: "Validation of fundamental skills in Python programming language for data computation."
     },
     zh: {
       title: "执照与", highlight: "认证", close: "关闭",
@@ -28,8 +26,7 @@ const Certifications = ({ lang }) => {
       google: "用于在谷歌生态系统上设计和管理数字营销活动的专业认证。",
       azure: "使用Microsoft Azure理解生成式人工智能系统架构。",
       fabric: "使用Microsoft Fabric进行分析和端到端数据科学实施。",
-      python: "验证用于数据计算的Python编程语言的基础技能。",
-      dataanalys: "涵盖数据处理、可视化和解读技能的认证，用于数据驱动的决策制定。"
+      python: "验证用于数据计算的Python编程语言的基础技能。"
     }
   };
 
@@ -40,14 +37,14 @@ const Certifications = ({ lang }) => {
     { title: "Google Ads Search", issuer: "Google", image: "/images/google-ads.png", desc: t.google },
     { title: "Generative AI Apps", issuer: "Microsoft Azure", image: "/images/azure-gen-ai.png", desc: t.azure },
     { title: "Data Science Applied", issuer: "Microsoft Fabric", image: "/images/fabric-data.png", desc: t.fabric },
-    { title: "Python Programming", issuer: "Sertifikasi Python", image: "/images/sertif-python.png", desc: t.python },
-    { title: "Data Analysis", issuer: "Sertifikasi Data Analysis", image: "/images/data-analys.jpeg", desc: t.dataanalys },
+    { title: "Python Programming", issuer: "Sertifikasi Python", image: "/images/sertif-python.png", desc: t.python }
   ];
 
   return (
     <section id="certifications" className="py-20 relative border-t border-slate-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-['DynaPuff'] text-white text-center mb-12 drop-shadow-lg">
+        
+        <h2 className="reveal reveal-down delay-100 text-4xl md:text-5xl font-['DynaPuff'] text-white text-center mb-12 drop-shadow-lg">
           {t.title} <span className="text-cyan-400">{t.highlight}</span>
         </h2>
         
@@ -56,7 +53,7 @@ const Certifications = ({ lang }) => {
             <div 
               key={index} 
               onClick={() => setSelected(cert)}
-              className="bg-slate-900/60 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-300 group flex flex-col cursor-pointer"
+              className={`reveal reveal-zoom delay-${(index % 3 + 1) * 200} bg-slate-900/60 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-300 group flex flex-col cursor-pointer`}
             >
               <div className="h-48 bg-slate-950 relative flex items-center justify-center border-b border-slate-800">
                 <img src={cert.image} alt={cert.title} className="w-full h-full object-contain p-2 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
@@ -73,7 +70,6 @@ const Certifications = ({ lang }) => {
         </div>
       </div>
 
-      {/* --- POPUP BERSIH --- */}
       {selected && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md" onClick={() => setSelected(null)}>
           <div 
