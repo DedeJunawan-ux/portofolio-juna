@@ -88,10 +88,21 @@ function App() {
           </svg>
         </div>
 
-        {/* --- GUNUNGAN WAYANG --- */}
-        <img src="/images/image_3887bb.jpg" alt="Wayang Kiri" className="fixed -top-32 -left-32 w-[500px] opacity-10 pointer-events-none z-0 anim-float mix-blend-lighten" style={{ animationDuration: '8s' }} />
-        <img src="/images/image_3887bb.jpg" alt="Wayang Kanan" className="fixed -bottom-32 -right-32 w-[500px] opacity-10 pointer-events-none z-0 anim-float mix-blend-lighten" style={{ animationDuration: '10s' }} />
-
+        {/* --- ASTRONOT MELAYANG (Responsive & Posisi Sempurna) --- */}
+        <img 
+          src="/images/Image_3887bb.png" 
+          alt="Astronot Atas" 
+          className="fixed top-10 -left-24 md:top-20 md:-left-10 lg:-left-16 w-[180px] md:w-[250px] lg:w-[300px] opacity-10 pointer-events-none z-0 anim-float drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" 
+          style={{ animationDuration: '10s' }} 
+          onError={(e) => e.target.style.display = 'none'} 
+        />
+        <img 
+          src="/images/Image_3887bb.png" 
+          alt="Astronot Bawah" 
+          className="fixed -bottom-10 -right-20 md:-bottom-16 md:-right-10 lg:-right-16 w-[200px] md:w-[280px] lg:w-[350px] opacity-[0.12] pointer-events-none z-0 anim-drift drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" 
+          style={{ '--rot': '-25deg', animationDuration: '15s' }} 
+          onError={(e) => e.target.style.display = 'none'} 
+        />
         {/* --- KOMPONEN UTAMA --- */}
         <div className="relative z-10">
           <Navbar lang={lang} setLang={setLang} />
